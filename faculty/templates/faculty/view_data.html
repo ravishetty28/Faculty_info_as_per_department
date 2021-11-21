@@ -1,0 +1,34 @@
+<form action="" method="POST">
+  {% csrf_token %}
+  <select class name="dropdown">
+    {% for x in depts %}
+    <option value="{{ x }}">
+      {{ x }}
+    </option>
+    {% endfor %}
+  </select>
+  <button type="submit" name="getFaculty">Submit</button>
+  <button type="submit" name="exportCsv">Export CSV</button>
+</form>
+
+<table> 
+  <tr>
+    <th>Faculty Name</th>
+    <th>Department</th>
+    <th>Date of Joining</th>
+    <th>Subject</th>
+  </tr>
+  <tbody>
+    {% for emp_info in emp_infos %}
+
+    <tr>
+      <td>{{ emp_info.facultyName}}</td>
+      <td>{{ emp_info.department }}</td>
+      <td>{{ emp_info.dateOfJoining }}</td>
+      <td>{{ emp_info.subject }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<p></p>
+<a href="{% url '/' %}">Click Here to Register Faculty</a>

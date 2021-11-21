@@ -1,0 +1,14 @@
+{% block content %}
+
+<H1 class="text-center">Enter Your Information as per your Department Form</H1>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p></p>
+    <button type="submit">Submit</button>
+</form>
+{{ emp_info }}
+
+<a href="{% url 'info' %}">Click Here for Uploaded Facylty Info</a>
+{% endblock %}
